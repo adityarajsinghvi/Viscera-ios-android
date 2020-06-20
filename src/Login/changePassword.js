@@ -6,11 +6,8 @@ import {
 } from 'react-native';
 import * as firebase from 'firebase'
 import { Container, Button, Content, Form, Item, Input, Label, Radio, Right } from 'native-base';
-import { SegmentedControls } from 'react-native-radio-buttons'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import Header from '../Components/Header'
-import MaterialIconsI from 'react-native-vector-icons/MaterialIcons'
-import DatePicker from 'react-native-datepicker'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default class ChangePassword extends React.Component {
@@ -58,18 +55,12 @@ export default class ChangePassword extends React.Component {
         BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
     }
     Logout = async ()=>{ 
-        console.log("Logout")
-    //     await AsyncStorage.setItem('UMID_user', JSOn.stringify({
-    //     email : '',
-    //     password :'',
-    //     status : 0
-    //   }))
+    
     await AsyncStorage.removeItem('viscera_user')
-    // await AsyncStorage.removeItem('UMID_Intro')
-    // await AsyncStorage.setItem('UMID_Intro',"0")
+
     }
     updatePassword = () => {
-        console.log("insidde update password",firebase.auth().currentUser);
+        // console.log("insidde update password",firebase.auth().currentUser);
         
         const emailCred = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, this.state.CurrentPass);
         firebase.auth().currentUser.reauthenticateWithCredential(emailCred)
@@ -120,18 +111,15 @@ export default class ChangePassword extends React.Component {
                                             value={this.state.NewPass}
                                             secureTextEntry={true}
                                             onChangeText={text => {
-                                                console.log(text)
                                                 this.setState({ NewPass: text })
                                                 var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
                                                 if (text.match(re)) {
-                                                    console.log("OKAY")
                                                     this.setState({
                                                         isPassword: true,
                                                         isFilled : true,
                                                         message: 'Please Fill all details.'
                                                     })
                                                 } else {
-                                                    console.log("not okay")
                                                     this.setState({
                                                         isPassword: false,
                                                         isFilled : true ,
@@ -152,7 +140,6 @@ export default class ChangePassword extends React.Component {
                                                 this.setState({ RetypePass: text })
                                                 var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
                                                 if (text.match(re)) {
-                                                    console.log("OKAY")
                                                     this.setState({
                                                         isConfirmPassword: true,
                                                         isFilled : true,

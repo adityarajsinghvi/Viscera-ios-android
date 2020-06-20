@@ -9,17 +9,7 @@ import {
     StatusBar, TouchableOpacity,BackHandler
 } from 'react-native';
 import DatePicker from 'react-native-datepicker'
-import {
-    
-    LearnMoreLinks,
-    Colors,
-    DebugInstructions,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import { NavigationContainer } from '@react-navigation/native';
 import { Container, Button, Content, Form, Item, Input, Label, Radio, Right} from 'native-base';
-import { createStackNavigator } from 'react-navigation-stack'
-// import { createStackNavigator } from '@react-navigation/stack';
 import { createSwitchNavigator, createAppContainer,NavigationActions,StackActions } from 'react-navigation';
 import { SegmentedControls } from 'react-native-radio-buttons'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -64,7 +54,7 @@ class First extends React.Component{
                                             return /\d/.test(text);
                                           }
                                           var isValid = hasNumber(text)
-                                          console.log(isValid)
+                                        //   console.log(isValid)
                                           if(isValid){
                                               this.setState({
                                                   message : 'First Name can\'t contain Numbers. ',
@@ -88,7 +78,7 @@ class First extends React.Component{
                                             return /\d/.test(text);
                                           }
                                           var isValid = hasNumber(text)
-                                          console.log(isValid)
+                                        //   console.log(isValid)
                                           if(isValid){
                                               this.setState({
                                                   message : 'Last Name can\'t contain Numbers. ',
@@ -128,8 +118,8 @@ class First extends React.Component{
                                     })
                                 }
                                 else{
-                                    console.log("navigate to next");
-                                    console.log(this.state);
+                                    // console.log("navigate to next");
+                                    // console.log(this.state);
                                     const arr = []
                                     arr.push(this.state.firstName)
                                     arr.push(this.state.lastName)
@@ -174,7 +164,7 @@ class Second extends React.Component{
       }
       componentDidMount(){
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
-        console.log(this.state.isSecondFilled , this.state.isFilledHeightFeet,this.state.isFilledHeightInches)
+        // console.log(this.state.isSecondFilled , this.state.isFilledHeightFeet,this.state.isFilledHeightInches)
       }
     render(){
         return(
@@ -225,7 +215,7 @@ class Second extends React.Component{
                         }}
                         onDateChange={(date) => {
                             this.setState({ date: date })
-                            console.log(this.state);
+                            // console.log(this.state);
 
                         }}
                     />
@@ -241,7 +231,7 @@ class Second extends React.Component{
                         options={["Male", "Female", "Other"]}
                         onSelection={(selectedOption) => {
                             this.setState({ selectedOption : selectedOption })
-                            console.log(this.state.selectedOption);
+                            // console.log(this.state.selectedOption);
                             
                         }}
                         backTint={'white'}
@@ -349,7 +339,7 @@ class Second extends React.Component{
                             }
                             <TouchableOpacity onPress={()=>{
                                 this.setState({isSecondFilled : true})
-                                console.log(this.state )
+                                // console.log(this.state )
 
                                 if(this.state.date.length == 0 || this.state.heightFeet.length==0 || this.state.heightInches.length==0 || this.state.selectedOption.length == 0 || this.state.phone.length == 0 ){
                                     this.setState({
@@ -363,7 +353,7 @@ class Second extends React.Component{
                                     })
                                 }else{
                                     if(this.state.isFilledHeightInches && this.state.isFilledHeightFeet){
-                                        console.log(this.state);
+                                        // console.log(this.state);
                                         const arr = []
                                         arr.push(this.state.firstName)
                                         arr.push(this.state.lastName)
@@ -374,7 +364,7 @@ class Second extends React.Component{
                                         arr.push(this.state.phone)
                                         this.props.navigation.navigate('Third' , {data : arr})
     
-                                        console.log("navigating to 3");
+                                        // console.log("navigating to 3");
                                     }else{
                                         this.setState({
                                             isSecondFilled : false
@@ -437,7 +427,7 @@ class Third extends React.Component{
                                     value={this.state.email}
                                     // keyboardType = "numeric"
                                     onChangeText={text =>{
-                                        console.log(this.state);
+                                        // console.log(this.state);
                                         var emailLower = text.toLowerCase()
                                         // console.log(emailLower)
                                         this.setState({email:emailLower})
@@ -456,7 +446,7 @@ class Third extends React.Component{
                                         this.setState({password:text})
                                         var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
                                         if( text.match(re) ){
-                                            console.log("OKAY")
+                                            // console.log("OKAY")
                                             this.setState({
                                                 isPassword : true,
                                                 message : 'Please Fill all details.'
@@ -482,7 +472,6 @@ class Third extends React.Component{
                                         this.setState({confirmPassword:text})
                                         var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
                                         if( text.match(re) ){
-                                            console.log("OKAY")
                                             this.setState({
                                                 isConfirmPassword : true,
                                                 message : 'Please, Fill all details.'
@@ -525,10 +514,6 @@ class Third extends React.Component{
                                     })
                                 }
                                 else{
-                                    console.log("navigationg ");
-                                    console.log(this.state);
-                                    // this.props.navigation.navigate('MainDrawer')
-
 
                                     var modified_email = ''
 
@@ -552,26 +537,25 @@ class Third extends React.Component{
                                             month = parseInt(month) + 1
                                             month = month.toString()
                                             month = 0+month
-                                            console.log("month is ", month)
+                                            // console.log("month is ", month)
                                         }else{
                                             month = parseInt(month)
                                             month  = month + 1
                                             month = month.toString()
-                                            console.log("month is",month)
+                                            // console.log("month is",month)
                                         }
                                         var createDate = date.getFullYear() + '-' + month + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()
-                                        console.log("createDate", createDate)
+                                        // console.log("createDate", createDate)
 
                                         if(userCredentials.user){
-                                            console.log("usercred= ",userCredentials);
-                                            console.log("usercred.user= ",userCredentials.user);
+                                            // console.log("usercred= ",userCredentials);
+                                            // console.log("usercred.user= ",userCredentials.user);
                                           userCredentials.user.updateProfile({
                                             displayName: this.state.firstName + ' ' + this.state.lastName
                                           }).then((s)=> {
                                             this.state.current_user = firebase.auth().currentUser;
-                                            console.log(this.state.current_user)
+                                            // console.log(this.state.current_user)
                                             // time=String(new Date(this.state.current_user.createdAt))
-                                            console.log("user created");
                                             firebase.database().ref('users/'+modified_email+"/").set({
                                                 firstName:this.state.firstName,
                                                 lastName:this.state.lastName,
@@ -593,15 +577,15 @@ class Third extends React.Component{
                                                     month = parseInt(month) + 1
                                                     month = month.toString()
                                                     month = 0+month
-                                                    console.log("month is ", month)
+                                                    // console.log("month is ", month)
                                                 }else{
                                                     month = parseInt(month)
                                                     month  = month + 1
                                                     month = month.toString()
-                                                    console.log("month is",month)
+                                                    // console.log("month is",month)
                                                 }
                                                 var createDate = date.getFullYear() + '-' + month + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()
-                                                console.log("createDate", createDate)
+                                                // console.log("createDate", createDate)
                                                 firebase.database().ref('profiles/'+modified_email).set({
                                                     firstName:this.state.firstName,
                                                     lastName:this.state.lastName,
@@ -620,15 +604,7 @@ class Third extends React.Component{
                                                   })
                                             })
         
-                                            //to reset the stack and make top of the stack to rading screen,
-                                            /*once someone successfully logs in, you would like to prevent them to go back to 
-                                            login/signup screen. */
-                                            // const resetAction = StackActions.reset({
-                                            //     index: 0,
-                                            //     key: null, // <-- this
-                                            //     actions: [NavigationActions.navigate({ routeName: "Profile" ,params:{user:this.state.current_user}})]
-                                            // })
-                                            // this.props.navigation.dispatch(resetAction)
+                                    
                                             this.props.navigation.navigate('ReadingScreen' , {user:userCredentials.user})
                                             this.props.navigation.navigate('MainDrawer' , {user:userCredentials.user})
                                           })
@@ -636,7 +612,7 @@ class Third extends React.Component{
                                     })
                                     .catch(function(error) {
                                       // alert(error.message);
-                                      console.log("Error in firebase ",error);
+                                    //   console.log("Error in firebase ",error);
                                       Alert.alert(String(error.message))
                                       
                                     });

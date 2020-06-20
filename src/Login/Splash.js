@@ -32,18 +32,9 @@ export default class Splash extends React.Component {
                    }
             else{
                 this.props.navigation.navigate('Login')
-
             }
         }, 3000);
-        // setTimeout(() => {
-        //     if (this.state.isFetching===false) {
-        //         this.props.navigation.navigate('ReadingScreen')
-        //         this.props.navigation.navigate('MainDrawer')
-        //     }
-        //     else {
-        //         this.props.navigation.navigate('Login')
-        //     }
-        // }, 3400);
+
     }
 
     UNSAFE_componentWillMount() {

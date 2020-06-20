@@ -11,36 +11,9 @@ import {
     ScrollView,
     Dimensions,Animated,Easing,ActivityIndicator,BackHandler,Alert,StatusBar,SafeAreaView
 } from 'react-native';
-import { SegmentedControls } from 'react-native-radio-buttons'
-
-
-// import {heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
-
 import { Collapse, CollapseHeader, CollapseBody } from "accordion-collapse-react-native";
-// import {Icon} from 'react-native-vector-icons/AntDesign'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import Oxygen from './Yearly/Oxygen';
-import HeartRate from './Yearly/HeartRate'
-import BloodGlucose from './Yearly/BloodGlucose'
-import BloodPressure from './Yearly/BloodPressure'
-import Weight from './Yearly/Weight'
-
-import BloodGlucoseWeekly from './Weekly/BloodGlucoseWeekly'
-
-import BloodPressureWeekly from './Weekly/BloodPressureWeekly'
-import HeartRateWeekly from './Weekly/HeartRateWeekly'
-import OxygenWeekly from './Weekly/OxygenWeekly'
-import WeightWeekly from './Weekly/WeightWeekly'
 import Header from '../Components/Header'
-import ChartsMonth from '../ChartsMonth'
-import BloodGlucoseMonthly from './Monthy/BloodGlucoseMonthly'
-import HeartRateMonthly from './Monthy/HeartRateMonthly'
-import OxygenMonthly from './Monthy/OxygenMonthly'
-import WeightMonthly from './Monthy/WeightMonthly'
-import BloodPressureMonthly from './Monthy/BloodPressureMonthly'
-import BMIWeekly from './Weekly/BMIWeekly'
-import BMIMonthly from './Monthy/BMIMonthly'
-import BMIYearly from './Yearly/BMIYearly'
 import BloodGlucoseDisplay from './BloodGlucoseDisplay'
 import BloodPressureDisplay from './BloodPressureDisplay'
 import BMIDisplay from './BMIDisplay'
@@ -59,7 +32,6 @@ export default class GraphScreen extends React.Component{
 
           this.roatateValue = new Animated.Value(0) 
           this.email= this.props.navigation.getParam('email', 'Anonymus');
-          console.log("kdjhfbgdjsckax" , this.email );
      this.SECTIONS=[
     {   
         id : 0,

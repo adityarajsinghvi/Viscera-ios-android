@@ -8,8 +8,6 @@ export default class Header extends React.Component {
         return (
             <View style={{ height: hp("7%"), width: "100%", flexDirection: 'row', backgroundColor: '#6F70AE', justifyContent: 'center',alignItems:'center' }}>
 
-                    {/* <View style={{justifyContent:'flex-start',alignItems}}> */}
-                        {/* <Text style={{color:'white',fontSize:20,alignSelf:'center'}}>Menu</Text> */}
                         {
                             this.props.type=="back"
                             ?
@@ -41,12 +39,10 @@ export default class Header extends React.Component {
                              </TouchableOpacity>                        
                         }
 
-                    {/* </View> */}
                 <View>
                     <Text style={{fontSize:28,color:'white'}}>{this.props.title}</Text>
                 </View>
                 <View>
-                    {/* <Text style={{color:'purple'}}>Menu</Text> */}
                 </View>
             </View>
         )

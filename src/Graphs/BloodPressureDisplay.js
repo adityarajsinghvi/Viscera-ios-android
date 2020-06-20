@@ -12,28 +12,10 @@ import {
     Dimensions,Animated,Easing,ActivityIndicator,BackHandler,Alert,
 } from 'react-native';
 import { SegmentedControls } from 'react-native-radio-buttons'
-import Oxygen from './Yearly/Oxygen';
-import HeartRate from './Yearly/HeartRate'
-import BloodGlucose from './Yearly/BloodGlucose'
 import BloodPressure from './Yearly/BloodPressure'
-import Weight from './Yearly/Weight'
-
-import BloodGlucoseWeekly from './Weekly/BloodGlucoseWeekly'
-
 import BloodPressureWeekly from './Weekly/BloodPressureWeekly'
-import HeartRateWeekly from './Weekly/HeartRateWeekly'
-import OxygenWeekly from './Weekly/OxygenWeekly'
-import WeightWeekly from './Weekly/WeightWeekly'
-import Header from '../Components/Header'
-import ChartsMonth from '../ChartsMonth'
-import BloodGlucoseMonthly from './Monthy/BloodGlucoseMonthly'
-import HeartRateMonthly from './Monthy/HeartRateMonthly'
-import OxygenMonthly from './Monthy/OxygenMonthly'
-import WeightMonthly from './Monthy/WeightMonthly'
 import BloodPressureMonthly from './Monthy/BloodPressureMonthly'
-import BMIWeekly from './Weekly/BMIWeekly'
-import BMIMonthly from './Monthy/BMIMonthly'
-import BMIYearly from './Yearly/BMIYearly'
+
 
 export default class BloodPressureDisplay extends React.Component{
     state = {

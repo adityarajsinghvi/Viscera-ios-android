@@ -28,28 +28,12 @@ export default class ForgotPassword extends Component {
             email:'',
         };
     }
-
-    // componentDidMount(){
-
-    //     /*this function is still not used, basic idea behind it was to store the email of user at the time of login in AsyncStorange 
-    //       and then during forgot password cross verify the email  */
-    //     (async()=>{
-    //         try{
-    //            const email = await AsyncStorage.getItem('email');
-    //            console.log("Email from forgot password",email);
-               
-    //         }catch(error){
-
-    //         }
-    //     })();
-    // }
-
     /* function to send password reset link to user to reset the password */
     handlePasswordReset = async () => {
         const email=this.state.email
         firebase.auth().sendPasswordResetEmail(email)
       .then(function (user) {
-          console.log("user form forgot password",user);
+          // console.log("user form forgot password",user);
           
         alert('Please check your email for Password reset link.')
       }).catch(function (e) {
@@ -77,7 +61,6 @@ export default class ForgotPassword extends Component {
               <View style={{width:wp('30%'),backgroundColor : '#694B64',marginTop : hp('5%'),height : hp('5.5%'),borderRadius:10,justifyContent:'center',alignItems:'center',elevation:6,alignSelf:'center'}}>
                     <TouchableOpacity
                     onPress={()=>{
-                        // this.signIn(this.state.email,this.state.password)
                         this.handlePasswordReset(this.state.email)
                     }}
                     >

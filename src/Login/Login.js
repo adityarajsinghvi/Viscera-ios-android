@@ -5,10 +5,8 @@ import {
 
 } from 'react-native';
 import * as firebase from 'firebase'
-import { Container, Content, Form, Item, Input, Label, Radio, Right } from 'native-base';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import { Headline,  TextInput,  Card, Caption, Button, Subheading} from "react-native-paper";
-// import Google from '../../Google'
 
 
 export default class Login extends React.Component {
@@ -36,7 +34,6 @@ export default class Login extends React.Component {
       )
       return true;
     }
-
     componentDidMount() {
 
       /eventListener for mobile backbutton/
@@ -52,13 +49,13 @@ export default class Login extends React.Component {
       password : password,
       status : status
     }
-    console.log("INSIDE STORE DATA",user_obj);
+    // console.log("INSIDE STORE DATA",user_obj);
     
     try {
       await AsyncStorage.setItem('viscera_user', JSON.stringify(user_obj));
     } catch (error) {
       // Error saving data
-      console.log(error)
+      // console.log(error)
       await AsyncStorage.setItem('viscera_user', JSOn.stringify({
         email : '',
         password :'',
@@ -69,18 +66,18 @@ export default class Login extends React.Component {
     signIn = (item, item1) => {
         var email = item
         var password = item1
-        console.log(email);
-        console.log(password);
+        // console.log(email);
+        // console.log(password);
         firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
-          console.log("user signedin with data", user.user);
+          // console.log("user signedin with data", user.user);
           this._storeData(email,password,1)
-          console.log("Navigating from login")
+          // console.log("Navigating from login")
           this.props.navigation.navigate('ReadingScreen',{ user: user.user })
           this.props.navigation.navigate('MainDrawer',{ user: user.user })
     
         }).catch((error) => {
           // Handle Errors here.
-          console.log(error)
+          // console.log(error)
           // x=String(error)
           Alert.alert(String(error))
           // ...
